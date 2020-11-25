@@ -1,0 +1,8 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@using StartProjectGuide.Models.ViewModels;
+@using StartProjectGuide.Models.Pages;
+@model  IPageViewModel<SitePageData>
+<div>
+    <h2>Header for @Html.DisplayFor(m => m.CurrentPage.MetaTitle)</h2>
+</div>
