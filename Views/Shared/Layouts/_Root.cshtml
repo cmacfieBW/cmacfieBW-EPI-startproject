@@ -1,27 +1,21 @@
-﻿@*@using StartProjectGuide.Models.ViewModels;
-@using StartProjectGuide.Models.Pages;
+﻿@using StartProjectGuide.Models.ViewModels;
+@using StartProjectGuide.Business.BaseClasses;
+@model  StartProjectGuide.Models.ViewModels.IPageViewModel<StartProjectGuide.Business.BaseClasses.BasePageData>
 
-@model IPageViewModel<SitePageData>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@Model.CurrentPage.MetaTitle</title>
-
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-
-    </div>
-    <div class="container body-content">
+    <header>
+        This is the header
+    </header>
+    <div class="body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <footer>
+        <p>This is the footer</p>
+    </footer>
 </body>
-</html>*@
-
+</html>

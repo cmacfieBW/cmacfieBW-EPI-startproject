@@ -1,13 +1,14 @@
 ﻿@using EPiServer.Core
 @using EPiServer.Web.Mvc.Html
-@model StartProjectGuide.Models.Pages.StandardPage
+@model StartProjectGuide.Models.ViewModels.IPageViewModel<StartProjectGuide.Models.Pages.StandardPage>
+
 <div>
     <p>Standard page view</p>
-    <h1>@Html.PropertyFor(m => m.Heading)</h1>
+    <h1>@Html.PropertyFor(m => m.CurrentPage.Heading)</h1>
     <div>
-        @Html.PropertyFor(m => m.MainContentArea)
+        @Html.PropertyFor(m => m.CurrentPage.MainContentArea)
     </div>
     <div>
-        @Html.PropertyFor(m => m.MainBody)
+        @Html.PropertyFor(m => m.CurrentPage.MainBody)
     </div>
 </div>

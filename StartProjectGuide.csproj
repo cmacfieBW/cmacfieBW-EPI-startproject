@@ -216,8 +216,13 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
+    <Compile Include="Business\Rendering\IContainerPage.cs" />
+    <Compile Include="Business\Rendering\SiteViewEngine.cs" />
+    <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Controllers\BlogPageController.cs" />
-    <Compile Include="Controllers\StandardPageController.cs" />
+    <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\PageControllerBase.cs" />
     <Compile Include="Controllers\TextBlockController.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Global.asax.cs">
@@ -225,18 +230,16 @@
     </Compile>
     <Compile Include="Models\Blocks\TextBlock.cs" />
     <Compile Include="Models\Pages\BlogPage.cs" />
-    <Compile Include="Models\Pages\SitePageData.cs" />
+    <Compile Include="Business\BaseClasses\BasePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
-    <Compile Include="Models\ViewModels\IPageViewModel.cs" />
+    <Compile Include="Business\Interfaces\IPageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
-    <Folder Include="Models\Media\" />
-    <Folder Include="Models\Properties\" />
     <Folder Include="Static\css\" />
+    <Folder Include="Views\Shared\PagePartials\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -273,6 +276,7 @@
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Blocks\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

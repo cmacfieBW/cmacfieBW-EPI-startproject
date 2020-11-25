@@ -4,11 +4,12 @@ using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
+using StartProjectGuide.Business.BaseClasses;
 
 namespace StartProjectGuide.Models.Pages
 {
     [ContentType(DisplayName = "DefaultPage1", GUID = "b110e7ba-a846-4215-b0ae-6ecd89f55e13", Description = "")]
-    public class StandardPage : PageData
+    public class StandardPage : BasePageData
     {
 
         [CultureSpecific]

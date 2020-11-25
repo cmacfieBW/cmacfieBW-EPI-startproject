@@ -1,0 +1,9 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model StartProjectGuide.Models.Blocks.TextBlock
+<div>
+    <h4>Shared Textblock</h4>
+    @Html.PropertyFor(m => m.Text)
+    @if (Model.TextLength != null)
+    {<p>The length of the text is @Html.DisplayFor(m => m.TextLength) characters</p>}
+</div>
