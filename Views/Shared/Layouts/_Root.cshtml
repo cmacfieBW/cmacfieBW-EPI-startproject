@@ -1,21 +1,29 @@
 ﻿@using StartProjectGuide.Models.ViewModels;
 @using StartProjectGuide.Business.BaseClasses;
-@model  StartProjectGuide.Models.ViewModels.IPageViewModel<StartProjectGuide.Business.BaseClasses.BasePageData>
+@model  IPageViewModel<BasePageData>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <header>
-        This is the header
-    </header>
-    <div class="body-content">
-        @RenderBody()
+    <div class="site-wrapper">
+        @if (!Model.Layout.HideHeader)
+        {
+            Html.RenderPartial("Header", Model);
+        }
+        <div class="body-content container">
+            <div class="content">
+                @RenderBody()
+            </div>
+        </div>
+        @if (!Model.Layout.HideFooter)
+        {
+            Html.RenderPartial("Footer", Model);
+        }
     </div>
-    <footer>
-        <p>This is the footer</p>
-    </footer>
 </body>
 </html>

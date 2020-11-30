@@ -15,12 +15,14 @@ namespace StartProjectGuide.Business.Rendering
     [ServiceConfiguration(typeof(IViewTemplateModelRegistrator))]
     public class TemplateCoordinator : IViewTemplateModelRegistrator
     {
-        public const string BlockFolder = "~/Views/Shared/Blocks";
-        public const string PagePartialsFolder = "~/Views/Shared/PagePartials";
+        public const string BlockFolder = "~/Views/Shared/Blocks/";
+        public const string PagePartialsFolder = "~/Views/Shared/PagePartials/";
 
         public void Register(TemplateModelCollection viewTemplateModelRegistrator)
         {
-            viewTemplateModelRegistrator.Add(typeof(BasePageData), new TemplateModel { Name = "Type1", AvailableWithoutTag = true, Path = BlockPath("TextBlock") });
+            //viewTemplateModelRegistrator.Add(typeof(BasePageData), new TemplateModel { Name = "Type1", AvailableWithoutTag = true, Path = BlockPath("TextBlock.cshtml") });
+            //viewTemplateModelRegistrator.Add(typeof(BasePageData), new TemplateModel { Name = "Type2", AvailableWithoutTag = true, Path = BlockPath("LogoBlock.cshtml") });
+            //viewTemplateModelRegistrator.Add(typeof(BasePageData), new TemplateModel { Name = "Type3", AvailableWithoutTag = true, Path = BlockPath("ButtonBlock.cshtml") });
         }
         public static void OnTemplateResolved(object sender, TemplateResolverEventArgs args)
         {

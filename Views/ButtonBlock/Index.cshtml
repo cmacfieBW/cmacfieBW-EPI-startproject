@@ -1,0 +1,8 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model StartProjectGuide.Models.Blocks.ButtonBlock
+<div class="button-wrapper">
+    <a clasS="button" href="@Model.Url">
+        <span>@Html.PropertyFor(m => m.Text)</span>
+    </a>
+</div>

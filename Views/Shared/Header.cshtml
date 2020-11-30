@@ -1,8 +1,26 @@
 ﻿@using EPiServer.Core
+@using EPiServer.Web;
 @using EPiServer.Web.Mvc.Html
 @using StartProjectGuide.Models.ViewModels;
+@using StartProjectGuide.Business.BaseClasses;
+@using System.Web.Mvc;
+@using StartProjectGuide.Business;
 @using StartProjectGuide.Models.Pages;
-@model  IPageViewModel<SitePageData>
-<div>
-    <h2>Header for @Html.DisplayFor(m => m.CurrentPage.MetaTitle)</h2>
-</div>
+@{
+    var startPage = ContentShortcuts.GetStartPage();
+    var pages = Helpers.GetChildren(startPage.ContentLink);
+}
+@model IPageViewModel<BasePageData>
+<header class="container">
+    <a href="/" class="logo">
+        <img src="~/Static/images/bw.svg" />
+    </a>
+    <div class="menu-items-row">
+        <div class="menu-items">
+            @foreach (var page in pages)
+            { 
+                @Html.PageLink(page, null, new { @class = "menu-item" })
+            }
+        </div>
+    </div>
+</header>

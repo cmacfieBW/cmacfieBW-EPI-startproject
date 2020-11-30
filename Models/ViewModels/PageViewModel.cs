@@ -7,6 +7,11 @@ using EPiServer.SpecializedProperties;
 using StartProjectGuide.Models.ViewModels;
 using StartProjectGuide.Models.Pages;
 using StartProjectGuide.Business.BaseClasses;
+using EPiServer;
+using EPiServer.Web;
+using EPiServer.ServiceLocation;
+using System.Web.Mvc;
+using EPiServer.Web.Routing;
 
 namespace StartProjectGuide.Models.ViewModels
 {
@@ -19,9 +24,44 @@ namespace StartProjectGuide.Models.ViewModels
 
         public T CurrentPage { get; private set; }
 
-        public LayoutModel Layout { get; set; }
-        public IContent Section { get; set; }
+        public IContent Test { get; set; }
 
+        public LayoutModel Layout
+        {
+            get
+            {
+                ContentReference startPageContentLink = SiteDefinition.Current.StartPage;
+                IContentLoader contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                var startPage = contentLoader.Get<StartPage>(startPageContentLink);
+                //var urlResolver = new UrlResolver();
+                return new LayoutModel
+                {
+                    HideFooter = startPage.HideSiteFooter,
+                    HideHeader = startPage.HideSiteHeader,
+                    LogoType = startPage.LogoType,
+                    //LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage))
+                };
+            }
+        }
+        public IContent Section { get; set; }
+        LayoutModel IPageViewModel<T>.Layout
+        {
+            get
+            {
+                ContentReference startPageContentLink = SiteDefinition.Current.StartPage;
+                IContentLoader contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                var startPage = contentLoader.Get<StartPage>(startPageContentLink);
+                //var urlResolver = new UrlResolver();
+                return new LayoutModel
+                {
+                    HideFooter = startPage.HideSiteFooter,
+                    HideHeader = startPage.HideSiteHeader,
+                    LogoType = startPage.LogoType,
+                    //LogotypeLinkUrl = new MvcHtmlString(_urlResolver.GetUrl(SiteDefinition.Current.StartPage))
+                };
+            }
+            set => throw new NotImplementedException();
+        }
     }
     public static class PageViewModel
     {

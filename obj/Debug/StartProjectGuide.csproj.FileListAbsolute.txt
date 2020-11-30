@@ -80,3 +80,7 @@ C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\obj\De
 C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\obj\Debug\StartProjectGuide.csproj.CopyComplete
 C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\obj\Debug\StartProjectGuide.dll
 C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\obj\Debug\StartProjectGuide.pdb
+C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\bin\EPiBootstrapArea.dll
+C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\bin\HtmlAgilityPack.dll
+C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\bin\HtmlAgilityPack.pdb
+C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\bin\HtmlAgilityPack.xml

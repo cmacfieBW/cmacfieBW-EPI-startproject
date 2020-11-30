@@ -57,6 +57,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPiBootstrapArea, Version=5.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiBootstrapArea.5.3.1\lib\net461\EPiBootstrapArea.dll</HintPath>
+    </Reference>
     <Reference Include="EPiServer, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.Core.11.15.1\lib\net461\EPiServer.dll</HintPath>
     </Reference>
@@ -119,6 +122,9 @@
     </Reference>
     <Reference Include="EPiServer.Web.WebControls, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.15.1\lib\net461\EPiServer.Web.WebControls.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -216,29 +222,54 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\ContentShortcuts.cs" />
+    <Compile Include="Business\Extensions\BlockDataExtensions.cs" />
+    <Compile Include="Business\Extensions\ContentExtensions.cs" />
+    <Compile Include="Business\Helpers.cs" />
     <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
     <Compile Include="Business\Rendering\IContainerPage.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
+    <Compile Include="Controllers\CarouselleBlockController.cs" />
+    <Compile Include="Controllers\ImageItemHorizontalBlockController.cs" />
+    <Compile Include="Controllers\ImageTextBlockController.cs" />
+    <Compile Include="Controllers\ImageTextBlockWrapperBlockController.cs" />
+    <Compile Include="Controllers\TextSectionWithButtonBlockController.cs" />
+    <Compile Include="Controllers\ButtonBlockController.cs" />
+    <Compile Include="Controllers\ImageBlockController.cs" />
     <Compile Include="Controllers\BlogPageController.cs" />
     <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\ImageFileController.cs" />
     <Compile Include="Controllers\PageControllerBase.cs" />
     <Compile Include="Controllers\TextBlockController.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blocks\ButtonBlock.cs" />
+    <Compile Include="Models\Blocks\CarouselleBlock.cs" />
+    <Compile Include="Models\Blocks\ImageTextBlockWrapperBlock.cs" />
+    <Compile Include="Models\Blocks\ImageItemHorizontalBlock.cs" />
+    <Compile Include="Models\Blocks\ImageTextBlock.cs" />
+    <Compile Include="Models\Blocks\TextSectionWithButtonBlock.cs" />
+    <Compile Include="Models\Blocks\ImageBlock.cs" />
     <Compile Include="Models\Blocks\TextBlock.cs" />
+    <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Pages\BlogPage.cs" />
     <Compile Include="Business\BaseClasses\BasePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Business\Interfaces\IPageViewModel.cs" />
+    <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\SiteImageUrlcs.cs" />
+    <Compile Include="Models\ViewModels\ImageViewModel.cs" />
     <Compile Include="Models\ViewModels\LayoutModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Business\Helpers\" />
     <Folder Include="Static\css\" />
+    <Folder Include="Views\Shared\Blocks\" />
     <Folder Include="Views\Shared\PagePartials\" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +285,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Static\images\bw.svg" />
+    <Content Include="Static\images\example.jpg" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -276,7 +309,15 @@
     <Content Include="Views\Shared\Layouts\_Root.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\Header.cshtml" />
-    <Content Include="Views\Shared\Blocks\Index.cshtml" />
+    <Content Include="Views\ImageBlock\Index.cshtml" />
+    <Content Include="Views\StartPage\Index.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\ButtonBlock\Index.cshtml" />
+    <Content Include="Views\TextSectionWithButtonBlock\Index.cshtml" />
+    <Content Include="Views\ImageItemHorizontalBlock\Index.cshtml" />
+    <Content Include="Views\CarouselleBlock\Index.cshtml" />
+    <Content Include="Views\ImageTextBlock\Index.cshtml" />
+    <Content Include="Views\ImageTextBlockWrapperBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

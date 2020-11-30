@@ -24,10 +24,6 @@ namespace StartProjectGuide.Business.BaseClasses
             set { this.SetPropertyValue(p => p.MetaTitle, value); }
         }
 
-        //[Display(GroupName = Global.GroupNames.MetaData, Order = 200)]
-        //[CultureSpecific]
-        //public virtual string[] MetaKeyWords { get; set; }
-
         [Display(GroupName = Global.GroupNames.MetaData, Order = 300)]
         public virtual string MetaDescription { get; set; }
 
@@ -37,6 +33,10 @@ namespace StartProjectGuide.Business.BaseClasses
         [CultureSpecific]
         public virtual bool HideSiteHeader { get; set; }
 
+        [Display(
+            GroupName = SystemTabNames.Settings,
+            Order = 210)]
+        [CultureSpecific]
         public virtual bool HideSiteFooter { get; set; }
 
     }

@@ -1,0 +1,5 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model StartProjectGuide.Models.Blocks.ImageTextBlockWrapperBlock
+@Html.PropertyFor(m => m.Content, new { cssClass = "image-text-block-wrapper", HasContainer = true, HasItemContainer = false })

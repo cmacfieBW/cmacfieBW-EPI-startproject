@@ -13,5 +13,7 @@ namespace StartProjectGuide.Models.ViewModels
     {
         T CurrentPage { get; }
         IContent Section { get; set; }
+
+        LayoutModel Layout { get; set; }
     }
 }

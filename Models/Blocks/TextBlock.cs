@@ -16,29 +16,7 @@ namespace StartProjectGuide.Models.Blocks
             Description = "Name field's description",
             GroupName = SystemTabNames.Content,
             Order = 1)]
-        public virtual string Text { get; set; }
-
-        [Display(
-            Name = "TextLength",
-            Description = "The ",
-            GroupName = SystemTabNames.Content,
-            Order = 1)]
-        public virtual int? TextLength
-        {
-            get
-            {
-                if(Text != null)
-                {
-                    return CalculateTextLength(Text);
-                }
-                return null;
-            }
-        }
-
-        private static int CalculateTextLength (string text)
-        {
-            return text.Length;
-        }
+        public virtual XhtmlString Body { get; set; }
 
     }
 }
