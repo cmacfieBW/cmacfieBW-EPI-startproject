@@ -1,6 +1,6 @@
 ﻿@using StartProjectGuide.Models.ViewModels;
 @using StartProjectGuide.Business.BaseClasses;
-@model  IPageViewModel<BasePageData>
+@model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Business.BaseClasses.BasePageData>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,19 +11,13 @@
 </head>
 <body>
     <div class="site-wrapper">
-        @if (!Model.Layout.HideHeader)
-        {
-            Html.RenderPartial("Header", Model);
-        }
+        @{ Html.RenderPartial("Header", Model); }
         <div class="body-content container">
             <div class="content">
                 @RenderBody()
             </div>
         </div>
-        @if (!Model.Layout.HideFooter)
-        {
-            Html.RenderPartial("Footer", Model);
-        }
+        @{ Html.RenderPartial("Footer"); }
     </div>
 </body>
 </html>

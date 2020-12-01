@@ -220,6 +220,7 @@ h2 {
     cursor: pointer;
     margin: 16px;
 }
+
     .image-text-block:hover {
         transform: scale(1.04);
     }

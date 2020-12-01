@@ -1,0 +1,8 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model  StartProjectGuide.Models.Blocks.IntroBlock
+<div class="section info-box-block">
+    <h2>@Html.PropertyFor(m => m.Header)</h2>
+    @Html.PropertyFor(m => m.Body)
+    @Html.PropertyFor(m => m.Button)
+</div>

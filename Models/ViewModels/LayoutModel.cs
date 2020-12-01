@@ -15,7 +15,6 @@ namespace StartProjectGuide.Models.ViewModels
         public bool HideFooter { get; set; }
 
         public ImageBlock LogoType { get; set; }
-        //public IHtmlString LogotypeLinkUrl { get; set; }
     }
 
 }

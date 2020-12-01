@@ -1,0 +1,4 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.ServiceStartPage>
+@Html.PropertyFor(m => m.CurrentPage.ServiceContentArea, new { cssClass = "service-content-area", HasContainer = false, HasItemContainer = false })

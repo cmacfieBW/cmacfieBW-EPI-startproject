@@ -11,8 +11,8 @@ using StartProjectGuide.Models.Blocks;
 namespace StartProjectGuide.Models.Pages
 {
     [SiteImageUrl]
-    [ContentType(DisplayName = "StartPage", GUID = "875088e0-edd9-4b5c-a993-d5b64770f7c9", Description = "")]
-    public class StartPage : StandardPage
+    [ContentType(DisplayName = "Start Page", GUID = "875088e0-edd9-4b5c-a993-d5b64770f7c9", Description = "")]
+    public class StartPage : BasePageData
     {
 
         [Display(
@@ -21,6 +21,10 @@ namespace StartProjectGuide.Models.Pages
             GroupName = Global.GroupNames.SiteSettings,
             Order = 1)]
         public virtual ImageBlock LogoType { get; set; }
+
+        [Display(Name = "Services", Description = "Services description", GroupName = SystemTabNames.Content, Order = 2)]
+        [AllowedTypes(typeof(ServiceStartPage))]
+        public virtual PageReference ServicePage { get; set; }
 
     }
 }

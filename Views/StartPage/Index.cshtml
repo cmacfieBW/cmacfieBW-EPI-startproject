@@ -2,6 +2,6 @@
 @using EPiServer.Web.Mvc.Html
 @using StartProjectGuide.Models.ViewModels
 @using StartProjectGuide.Models.Pages
-@model PageViewModel<StartProjectGuide.Models.Pages.StartPage>
+@model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.StartPage>
 <p>StartPage</p>
-@Html.PropertyFor(m => m.CurrentPage.MainContentArea)
+@Html.PropertyFor(m => m.CurrentPage.ServicePage)

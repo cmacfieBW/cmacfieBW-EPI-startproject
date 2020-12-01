@@ -9,7 +9,7 @@ using EPiServer.SpecializedProperties;
 
 namespace StartProjectGuide
 {
-    public class Global
+    public class Global : EPiServer.Global
     {
         public readonly static SelectItem BlockWidthFull = new SelectItem() { Text = "Full", Value = "span12" };
         public readonly static SelectItem BlockWidthHalf = new SelectItem() { Text = "Half", Value = "span6" };

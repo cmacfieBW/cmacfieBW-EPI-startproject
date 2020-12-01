@@ -6,11 +6,11 @@
 @using System.Web.Mvc;
 @using StartProjectGuide.Business;
 @using StartProjectGuide.Models.Pages;
+@model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Business.BaseClasses.BasePageData>
 @{
     var startPage = ContentShortcuts.GetStartPage();
     var pages = Helpers.GetChildren(startPage.ContentLink);
 }
-@model IPageViewModel<BasePageData>
 <header class="container">
     <a href="/" class="logo">
         <img src="~/Static/images/bw.svg" />
@@ -18,7 +18,7 @@
     <div class="menu-items-row">
         <div class="menu-items">
             @foreach (var page in pages)
-            { 
+            {
                 @Html.PageLink(page, null, new { @class = "menu-item" })
             }
         </div>
