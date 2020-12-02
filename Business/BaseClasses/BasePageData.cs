@@ -12,6 +12,13 @@ namespace StartProjectGuide.Business.BaseClasses
     /// </summary>
     public abstract class BasePageData : PageData
     {
+
+        [Display(Name = "Header", GroupName = SystemTabNames.Content, Order = 10)]
+        public virtual string Header { get; set; }
+
+        [Display(Name = "Preamble", GroupName = SystemTabNames.Content, Order = 10)]
+        public virtual XhtmlString Preamble { get; set; }
+
         [Display(GroupName = Global.GroupNames.MetaData, Order = 100)]
         [CultureSpecific]
         public virtual string MetaTitle

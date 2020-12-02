@@ -256,6 +256,7 @@
     <Compile Include="Business\BaseClasses\BaseBlockDataExtended.cs" />
     <Compile Include="Business\Attributes\StrippedHtmlLengthAttribute.cs" />
     <Compile Include="Business\BaseClasses\BaseBlockData.cs" />
+    <Compile Include="Business\ContentExtensions.cs" />
     <Compile Include="Business\ContentShortcuts.cs" />
     <Compile Include="Business\Attributes\AutoPopulateLanguageBranchAttribute.cs" />
     <Compile Include="Business\Extensions\ContentExtensions.cs" />
@@ -265,8 +266,10 @@
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
     <Compile Include="Controllers\CarouselleBlockController.cs" />
+    <Compile Include="Controllers\ServiceCardBlockController.cs" />
     <Compile Include="Controllers\ServiceCardsBlockController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\WorkCardsBlockController.cs" />
     <Compile Include="Controllers\WorkCardBlockController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\ServicePageController.cs" />
@@ -293,6 +296,7 @@
     <Compile Include="Models\Blocks\IntroBlock.cs" />
     <Compile Include="Models\Blocks\ImageBlock.cs" />
     <Compile Include="Models\Blocks\TextBlock.cs" />
+    <Compile Include="Models\Blocks\WorkCardsBlock.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Business\BaseClasses\BasePageData.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
@@ -366,6 +370,8 @@
     <Content Include="Views\ServiceStartPage\Index.cshtml" />
     <Content Include="Views\WorkPage\Index.cshtml" />
     <Content Include="Views\WorkStartPage\Index.cshtml" />
+    <Content Include="Views\ServiceCardBlock\Index.cshtml" />
+    <Content Include="Views\WorkCardsBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

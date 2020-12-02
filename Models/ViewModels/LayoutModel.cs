@@ -14,7 +14,7 @@ namespace StartProjectGuide.Models.ViewModels
         public bool HideHeader { get; set; }
         public bool HideFooter { get; set; }
 
-        public ImageBlock LogoType { get; set; }
+        public ContentReference LogoType { get; set; }
     }
 
 }

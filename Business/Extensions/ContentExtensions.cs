@@ -56,6 +56,17 @@ namespace StartProjectGuide.Business.Extensions
         }
 
         /// <summary>
+        ///     Shorthand for DataFactory.Instance.Get
+        /// </summary>
+        /// <typeparam name="TContent"></typeparam>
+        /// <param name="contentLink"></param>
+        /// <returns></returns>
+        public static TContent Get<TContent>(this ContentReference contentLink) where TContent : IContent
+        {
+            return DataFactory.Instance.Get<TContent>(contentLink);
+        }
+
+        /// <summary>
         ///     Returns page of PageData type for provided content reference.
         /// </summary>
         /// <param name="contentReference">Content reference for which to get page.</param>
@@ -90,18 +101,6 @@ namespace StartProjectGuide.Business.Extensions
         public static bool IsNullOrEmpty(this ContentReference contentReference)
         {
             return ContentReference.IsNullOrEmpty(contentReference);
-        }
-
-
-        /// <summary>
-        ///     Shorthand for DataFactory.Instance.Get
-        /// </summary>
-        /// <typeparam name="TContent"></typeparam>
-        /// <param name="contentLink"></param>
-        /// <returns></returns>
-        public static TContent Get<TContent>(this ContentReference contentLink) where TContent : IContent
-        {
-            return DataFactory.Instance.Get<TContent>(contentLink);
         }
 
         /// <summary>

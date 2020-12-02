@@ -8,22 +8,20 @@ using StartProjectGuide.Models.Pages;
 
 namespace StartProjectGuide.Business
 {
-    public static class ContentShortcuts
+    public class ContentShortcuts
     {
-       
+
         public static StartPage GetStartPage()
         {
-            if(ContentReference.StartPage != null)
-            {
-                PageReference startPageReference = ContentReference.StartPage;
-                StartPage startPage = DataFactory.Instance.Get<StartPage>(startPageReference) as StartPage;
-                return startPage;
-            } else
-            {
-                PageReference reference = ContentReference.StartPage;
-                StartPage startPage = DataFactory.Instance.Get<StartPage>(reference) as StartPage;
-                return startPage;
-            }
+            if (ContentReference.StartPage != null) return ContentReference.StartPage.Get<StartPage>() as StartPage;
+            return new ContentReference(6).Get<StartPage>() as StartPage;
+        }
+
+        public static ContentReference GetServiceStartPage()
+        {
+            if (GetStartPage().ServiceStartPage != null)
+                return GetStartPage().ServiceStartPage;
+            return ContentReference.EmptyReference;
         }
     }
 }

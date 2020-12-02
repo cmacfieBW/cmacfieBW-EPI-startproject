@@ -19,12 +19,12 @@ namespace StartProjectGuide.Models.Pages
             Name = "Logo type",
             Description = "The logotype for the page",
             GroupName = Global.GroupNames.SiteSettings,
-            Order = 1)]
-        public virtual ImageBlock LogoType { get; set; }
+            Order = 10)]
+        public virtual ContentReference LogoType { get; set; }
 
-        [Display(Name = "Services", Description = "Services description", GroupName = SystemTabNames.Content, Order = 2)]
+        [Display(Name = "Service start page", Description = "Service start page", GroupName = Global.GroupNames.SiteSettings, Order = 20)]
         [AllowedTypes(typeof(ServiceStartPage))]
-        public virtual PageReference ServicePage { get; set; }
+        public virtual PageReference ServiceStartPage { get; set; }
 
     }
 }

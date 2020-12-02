@@ -13,9 +13,10 @@ namespace StartProjectGuide.Models.Pages
     public class ServiceStartPage : BasePageData
     {
 
-        [Display(Name = "Sevice Content", Description = "Content area for services", GroupName = SystemTabNames.Content, Order = 20)]
-        [AllowedTypes(typeof(ServiceCardsBlock))]
-        public virtual ContentArea ServiceContentArea { get; set; }
+
+        //[Display(Name = "Content", GroupName = SystemTabNames.Content, Order = 20)]
+        //[AllowedTypes(typeof(IntroBlock), typeof(ServiceCardsBlock), typeof(WorkCardsBlock))]
+        //public virtual PageReference ServicePage { get; set; }
 
     }
 }

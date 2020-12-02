@@ -20,6 +20,8 @@ namespace StartProjectGuide
         {
             [Display(Name = "Default", Order = 10)]
             public const string Default = "Default";
+            [Display(Name = "Teaser ", Order = 15)]
+            public const string Teaser = "Teaser";
 
             [Display(Name = "Meta Data", Order = 20)]
             public const string MetaData = "Meta Data";

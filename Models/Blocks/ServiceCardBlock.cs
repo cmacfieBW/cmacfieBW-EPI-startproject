@@ -15,7 +15,7 @@ namespace StartProjectGuide.Models.Blocks
             Description = "Top image",
             GroupName = SystemTabNames.Content,
             Order = 0)]
-        public virtual ImageBlock Image { get; set; }
+        public virtual ContentReference Image { get; set; }
 
         [Display(Name = "Header", Description = "Header text", GroupName = SystemTabNames.Content, Order = 1)]
         public virtual string Header { get; set; }

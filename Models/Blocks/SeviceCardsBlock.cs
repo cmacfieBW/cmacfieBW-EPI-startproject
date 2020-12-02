@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using EPiServer;
 using EPiServer.Core;
@@ -11,24 +12,9 @@ namespace StartProjectGuide.Models.Blocks
     public class ServiceCardsBlock : BlockData
     {
 
-        [Display(
-            Name = "Image",
-            Description = "Top image",
-            GroupName = SystemTabNames.Content,
-            Order = 0)]
-        public virtual ImageBlock Image { get; set; }
+        [Display(Name = "Sevice cards", Description = "Content area for service cards", GroupName = SystemTabNames.Content, Order = 20)]
+        [AllowedTypes(typeof(ServiceCardBlock))]
+        public virtual ContentArea ServiceContentArea { get; set; }
 
-        [Display(Name = "Header", Description = "Header text", GroupName = SystemTabNames.Content, Order = 1)]
-        public virtual string Header { get; set; }
-
-        [Display(Name = "Description", Description = "Descriptive text", GroupName = SystemTabNames.Content, Order = 1)]
-        public virtual XhtmlString Description { get; set; }
-
-
-        [Display(Name = "Link text", Description = "The text of the of the link", GroupName = SystemTabNames.Content, Order = 2)]
-        public virtual string LinkText { get; set; }
-
-        [Display(Name = "Link Url", Description = "The URL of the link", GroupName = SystemTabNames.Content, Order = 2)]
-        public virtual Url LinkUrl { get; set; }
     }
 }

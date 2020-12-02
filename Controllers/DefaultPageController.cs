@@ -17,7 +17,6 @@ namespace StartProjectGuide.Controllers
     {
         public ViewResult Index(BasePageData currentPage)
         {
-            Console.WriteLine(currentPage);
             var model = CreateModel(currentPage);
             string viewName = string.Format("~/Views/{0}/Index.cshtml", currentPage.GetOriginalType().Name);
             return View(viewName, model);

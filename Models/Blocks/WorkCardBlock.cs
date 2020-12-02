@@ -33,7 +33,7 @@ namespace StartProjectGuide.Models.Blocks
             Name = "Image",
             GroupName = SystemTabNames.Content,
             Order = 2)]
-        public virtual ImageBlock Image { get; set; }
+        public virtual ContentReference Image { get; set; }
 
         [SelectOne(SelectionFactoryType = typeof(BlockWidthFactory))]
         [Display(Name = "Block width", GroupName = SystemTabNames.Content, Order = 2)]

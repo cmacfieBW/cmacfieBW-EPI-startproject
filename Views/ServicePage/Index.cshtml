@@ -2,10 +2,7 @@
 @using EPiServer.Web.Mvc.Html
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.ServicePage>
 
-<p>Service page</p>
-@Html.PropertyFor(m => m.CurrentPage.IntroContentArea)
-@Html.PropertyFor(m => m.CurrentPage.ServiceContentArea, new { cssClass = "service-content-area", HasContainer = false, HasItemContainer = false })
-<div>
-    @Html.PropertyFor(m => m.CurrentPage.WorkContentArea, new { cssClass = "image-text-block-wrapper", HasItemContainer = false })
-    @Html.PropertyFor(m => m.CurrentPage.WorkContentButton)
+<div class="service-page">
+    @Html.PropertyFor(m => m.CurrentPage.Header, new { CssClass = "header" })
+    @Html.PropertyFor(m => m.CurrentPage.Preamble, new { cssClass="preamble", HasContainer = false, HasItemContainer = false})
 </div>

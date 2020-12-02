@@ -1,4 +1,24 @@
 ﻿@using EPiServer.Core
+@using EPiServer
+@using EPiServer.ServiceLocation
+@using StartProjectGuide.Business;
+@using StartProjectGuide.Models.Pages;
 @using EPiServer.Web.Mvc.Html
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.ServiceStartPage>
-@Html.PropertyFor(m => m.CurrentPage.ServiceContentArea, new { cssClass = "service-content-area", HasContainer = false, HasItemContainer = false })
+@{
+    var servicePages = Helpers.GetChildren(ContentShortcuts.GetServiceStartPage()).Select(s => s as ServicePage);
+}
+<div>
+    <p>Service start page</p>
+    @foreach (var servicePage in servicePages)
+    {
+        <div>
+            <div class="section image-item-horizontal">
+                <img src="@Url.ContentUrl(servicePage.Image.Url)" alt="@servicePage.Image.Title" />
+                <h1>@Html.Raw(servicePage.Header)</h1>
+                @Html.Raw(servicePage.TeaserDescription)
+                <a class="link" href="@servicePage.TeaserLinkUrl">Read more</a>
+            </div>
+        </div>
+    }
+</div>

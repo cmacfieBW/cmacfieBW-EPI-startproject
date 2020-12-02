@@ -1,0 +1,9 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model StartProjectGuide.Models.Blocks.ServiceCardBlock
+<div class="section image-item-horizontal">
+    @Html.PropertyFor(m => m.Image)
+    <h1>@Html.PropertyFor(m => m.Header)</h1>
+    @Html.PropertyFor(m => m.Description)
+    <a class="link" href="@Model.LinkUrl">@Html.PropertyFor(m => m.LinkText)</a>
+</div>
