@@ -9,12 +9,12 @@ using StartProjectGuide.Models.Blocks;
 
 namespace StartProjectGuide.Models.Pages
 {
-    [ContentType(DisplayName = "Work Start Page", GUID = "da02b6e3-ee09-49de-a529-23378899da87", Description = "", GroupName = "StartPage")]
+    [ContentType(DisplayName = "Work Start Page", GUID = "da02b6e3-ee09-49de-a529-23378899da87", Description = "", GroupName = "Landing Page")]
+    [AvailableContentTypes(
+        Availability.Specific,
+        Include = new[] { typeof(WorkPage) })]
     public class WorkStartPage : BasePageData
     {
 
-        [Display(Name = "Work Content", Description = "Content area for works", GroupName = SystemTabNames.Content, Order = 2)]
-        [AllowedTypes(typeof(WorkCardBlock))]
-        public virtual ContentArea WorkContentArea { get; set; }
     }
 }

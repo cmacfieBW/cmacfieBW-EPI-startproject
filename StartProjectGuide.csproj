@@ -253,7 +253,6 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="Business\BaseClasses\BaseBlockDataExtended.cs" />
     <Compile Include="Business\Attributes\StrippedHtmlLengthAttribute.cs" />
     <Compile Include="Business\BaseClasses\BaseBlockData.cs" />
     <Compile Include="Business\ContentExtensions.cs" />
@@ -265,12 +264,9 @@
     <Compile Include="Business\Rendering\IContainerPage.cs" />
     <Compile Include="Business\Rendering\SiteViewEngine.cs" />
     <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
-    <Compile Include="Controllers\CarouselleBlockController.cs" />
-    <Compile Include="Controllers\ServiceCardBlockController.cs" />
-    <Compile Include="Controllers\ServiceCardsBlockController.cs" />
+    <Compile Include="Controllers\ContactPageController.cs" />
+    <Compile Include="Controllers\ContactStartPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
-    <Compile Include="Controllers\WorkCardsBlockController.cs" />
-    <Compile Include="Controllers\WorkCardBlockController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\ServicePageController.cs" />
     <Compile Include="Controllers\ServiceStartPageController.cs" />
@@ -289,16 +285,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\ButtonBlock.cs" />
-    <Compile Include="Models\Blocks\CarouselleBlock.cs" />
-    <Compile Include="Models\Blocks\ServiceCardBlock.cs" />
-    <Compile Include="Models\Blocks\SeviceCardsBlock.cs" />
-    <Compile Include="Models\Blocks\WorkCardBlock.cs" />
     <Compile Include="Models\Blocks\IntroBlock.cs" />
     <Compile Include="Models\Blocks\ImageBlock.cs" />
     <Compile Include="Models\Blocks\TextBlock.cs" />
-    <Compile Include="Models\Blocks\WorkCardsBlock.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Business\BaseClasses\BasePageData.cs" />
+    <Compile Include="Models\Pages\ContactPage.cs" />
+    <Compile Include="Models\Pages\ContactStartPage.cs" />
     <Compile Include="Models\Pages\LandingPage.cs" />
     <Compile Include="Models\Pages\ServicePage.cs" />
     <Compile Include="Models\Pages\ServiceStartPage.cs" />
@@ -323,17 +316,50 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\cervo-neue\License.txt" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\fonts\Roboto\LICENSE.txt" />
     <Content Include="license.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-BlackNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-BlackNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-BoldNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-BoldNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-ExtraBoldNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-ExtraBoldNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-ExtraLightNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-ExtraLightNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-LightNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-LightNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-MediumNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-MediumNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-RegularNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-RegularNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-SemiBoldNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-SemiBoldNeueItalic.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-ThinNeue.otf" />
+    <Content Include="Content\fonts\cervo-neue\Typoforge Studio - CervoNeue-ThinNeueItalic.otf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Black.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Italic.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-Thin.ttf" />
+    <Content Include="Content\fonts\Roboto\Roboto-ThinItalic.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Static\images\bw.svg" />
     <Content Include="Static\images\example.jpg" />
+    <Content Include="Static\images\no-image.png" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -344,9 +370,6 @@
     <Content Include="modules\_protected\CMS\CMS.zip" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\web.config" />
     <Content Include="modules\_protected\EPiServer.Cms.TinyMce\EPiServer.Cms.TinyMce.zip" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\StandardPage\Index.cshtml" />
     <Content Include="Views\TextBlock\Index.cshtml" />
@@ -360,18 +383,14 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\ButtonBlock\Index.cshtml" />
     <Content Include="Views\IntroBlock\Index.cshtml" />
-    <Content Include="Views\ServiceCardsBlock\Index.cshtml" />
-    <Content Include="Views\CarouselleBlock\Index.cshtml" />
-    <Content Include="Views\WorkCardBlock\Index.cshtml" />
-    <Content Include="Views\Shared\PagePartials\ServiceCard.cshtml" />
     <Content Include="Views\Shared\PagePartials\WorkCard.cshtml" />
     <Content Include="Views\ServicePage\Index.cshtml" />
     <Content Include="Views\LandingPage\Index.cshtml" />
     <Content Include="Views\ServiceStartPage\Index.cshtml" />
     <Content Include="Views\WorkPage\Index.cshtml" />
     <Content Include="Views\WorkStartPage\Index.cshtml" />
-    <Content Include="Views\ServiceCardBlock\Index.cshtml" />
-    <Content Include="Views\WorkCardsBlock\Index.cshtml" />
+    <Content Include="Views\ContactStartPage\Index.cshtml" />
+    <Content Include="Views\ContactPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

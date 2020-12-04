@@ -20,8 +20,6 @@ namespace StartProjectGuide.Controllers
             var page = PageContext.Page as BasePageData;
             if (page != null)
             {
-                layoutModel.HideHeader = page.HideSiteHeader;
-                layoutModel.HideFooter = page.HideSiteFooter;
             }
         }
     }

@@ -9,7 +9,7 @@
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Business.BaseClasses.BasePageData>
 @{
     var startPage = ContentShortcuts.GetStartPage();
-    var pages = Helpers.GetChildren(startPage.ContentLink);
+    var pages = startPage.ContentLink.GetChildren().ToList().Select(a => a as BasePageData);
 }
 <header class="container">
     <a href="/" class="logo">
@@ -19,7 +19,14 @@
         <div class="menu-items">
             @foreach (var page in pages)
             {
-                @Html.PageLink(page, null, new { @class = "menu-item" })
+                if (page.CustomMenuLink != null)
+                {
+                    <a class="menu-item" href="@page.CustomMenuLink">@page.Name</a>
+                }
+                else
+                {
+                    @Html.PageLink(page, null, new { @class = "menu-item" })
+                }
             }
         </div>
     </div>

@@ -23,7 +23,7 @@ namespace StartProjectGuide.Models.Blocks
             Name = "Body Text",
             GroupName = SystemTabNames.Content,
             Order = 1)]
-        public virtual XhtmlString Body { get; set; }
+        public virtual XhtmlString Preamble { get; set; }
 
         [Display(Name = "Button", Description = "Optional link button", GroupName = SystemTabNames.Content, Order = 2)]
         public virtual ButtonBlock Button { get; set; }

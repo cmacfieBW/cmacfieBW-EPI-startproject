@@ -11,12 +11,11 @@ using StartProjectGuide.Models.Blocks;
 
 namespace StartProjectGuide.Models.Pages
 {
-    [ContentType(DisplayName = "Service cards wrapper", GUID = "37115e77-d490-4e71-b908-9d57b62d23c2", Description = "")]
+    [ContentType(DisplayName = "Service page", GUID = "37115e77-d490-4e71-b908-9d57b62d23c2", Description = "", GroupName = "Sub page")]
     public class ServicePage : BasePageData
     {
         [Display(
             Name = "Image",
-            Description = "Top image",
             GroupName = SystemTabNames.Content,
             Order = 0)]
         public virtual ImageBlock Image { get; set; }
@@ -27,9 +26,6 @@ namespace StartProjectGuide.Models.Pages
         /** Teaser */
         [Display(Name = "Description", Description = "Descriptive text", GroupName = Global.GroupNames.Teaser, Order = 1)]
         public virtual XhtmlString TeaserDescription { get; set; }
-
-        [Display(Name = "Link Url", Description = "The URL of the link", GroupName = Global.GroupNames.Teaser, Order = 2)]
-        public virtual Url TeaserLinkUrl { get; set; }
 
     }
 }

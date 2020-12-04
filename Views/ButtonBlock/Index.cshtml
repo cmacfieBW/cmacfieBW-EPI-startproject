@@ -3,9 +3,9 @@
 @model StartProjectGuide.Models.Blocks.ButtonBlock
 @if (Model.Text != null)
 {
-    <div class="button-wrapper">
-        <a clasS="button" href="@Model.Url">
-            <span>@Html.PropertyFor(m => m.Text)</span>
+    <div class="row fill">
+        <a class="link button" href="@Model.Url">
+            @Html.PropertyFor(m => m.Text)
         </a>
     </div>
 }

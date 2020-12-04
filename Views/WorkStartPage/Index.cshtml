@@ -1,5 +1,24 @@
 ﻿@using EPiServer.Core
 @using EPiServer.Web.Mvc.Html
-
-@*@model StartProjectGuide.Views.WorkStartPage.Index*@
-<p>Work start page</p>
+@using StartProjectGuide.Models.Pages
+@using StartProjectGuide.Business
+@model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.WorkStartPage>
+@{
+    var workPages = ContentShortcuts.GetWorkStartPage().GetChildren();
+}
+@Html.PropertyFor(m => m.CurrentPage.IntroSection)
+@if (workPages != null)
+{
+    <div class="image-text-block-wrapper">
+        @foreach (var workPage in workPages.ToList().Select(x => x as WorkPage))
+        {
+            <a class="image-text-block span6" href="@workPage.StaticLinkURL">
+                <div class="text-block-text">
+                    <h2>@Html.Raw(workPage.Name)</h2>
+                    <p>@Html.Raw(workPage.TeaserDescription)</p>
+                </div>
+                <img class="background-image" src="@Url.ContentUrl(workPage.Image.Url)" alt="@workPage.Image.Title" />
+            </a>
+        }
+    </div>
+}

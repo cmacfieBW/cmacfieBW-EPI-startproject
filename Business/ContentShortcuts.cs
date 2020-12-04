@@ -23,5 +23,15 @@ namespace StartProjectGuide.Business
                 return GetStartPage().ServiceStartPage;
             return ContentReference.EmptyReference;
         }
+
+        public static ContentReference GetWorkStartPage()
+        {
+            return GetStartPage().WorkStartPage ?? ContentReference.EmptyReference;
+        }
+
+        public static ContentReference GetContactPages()
+        {
+            return GetStartPage().ContactPage ?? ContentReference.EmptyReference;
+        }
     }
 }

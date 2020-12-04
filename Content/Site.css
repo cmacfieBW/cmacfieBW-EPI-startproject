@@ -1,7 +1,44 @@
-﻿html {
+﻿/** Fonts **/
+@font-face {
+    font-family: "Cervo Neue Bold Italic";
+    src: url('fonts/cervo-neue/Typoforge Studio - CervoNeue-BoldNeueItalic.otf')
+}
+
+@font-face {
+    font-family: "Cervo Neue Bold";
+    src: url('fonts/cervo-neue/Typoforge Studio - CervoNeue-BoldNeue.otf')
+}
+
+@font-face {
+    font-family: "Cervo Neue";
+    src: url('fonts/cervo-neue/Typoforge Studio - CervoNeue-RegularNeue.otf')
+}
+
+@font-face {
+    font-family: "Cervo Neue Itatlic";
+    src: url('fonts/cervo-neue/Typoforge Studio - CervoNeue-RegularNeueItalic.otf')
+}
+
+@font-face {
+    font-family: "Cervo Neue Extra Bold";
+    src: url('fonts/cervo-neue/Typoforge Studio - CervoNeue-ExtraBoldNeue.otf')
+}
+
+@font-face {
+    font-family: "Cervo Neue Extra Bold Italic";
+    src: url('fonts/cervo-neue/Typoforge Studio - CervoNeue-ExtraBoldNeueItalic.otf')
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(fonts/Roboto/Roboto-Regular.ttf)
+}
+
+html {
     height: 100%;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    overflow-x: hidden;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 header, footer, .body-content {
@@ -9,6 +46,7 @@ header, footer, .body-content {
 }
 
 body {
+    width: 100%;
     margin: 0;
     display: flex;
     flex-flow: row nowrap;
@@ -19,6 +57,7 @@ body {
 
     body .site-wrapper {
         height: 100%;
+        width: 100%;
         display: flex;
         flex: 1 0 700px;
         flex-flow: column nowrap;
@@ -32,16 +71,23 @@ em {
     font-size: 20px;
 }
 
+/****************/
+/** Page layout */
+/****************/
+
 /** Menu row */
 .menu-items-row {
     flex: 1 1;
     display: flex;
     flex-flow: row nowrap;
+    letter-spacing: 2px;
     justify-content: center;
+    font-family: 'Cervo Neue Bold', sans-serif;
+    text-transform: uppercase;
 }
 
     .menu-items-row .menu-items {
-        flex: 0 1 500px;
+        flex: 0 1 600px;
         display: flex;
         justify-content: space-around;
     }
@@ -79,24 +125,20 @@ em {
     justify-content: center;
 }
 
-    .body-content .content {
-        flex: 0 1 1500px;
+    .body-content > .content {
+        overflow: hidden;
+        padding: 0 1vw;
     }
 
-.button-wrapper {
-    display: flex;
-}
-
-.button {
-    border: 3px solid black;
-    padding: 10px 20px;
-    border-radius: 30px;
-}
-
-a, a * {
+a {
     text-decoration: none !important;
     color: black !important;
 }
+
+    a.link {
+        font-weight: 700;
+        color: #48247d !important;
+    }
 
 .cursive {
     font-style: italic;
@@ -130,6 +172,41 @@ header {
             flex: 1 0;
         }
 
+/*************/
+/** General **/
+/*************/
+h2 {
+    margin: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+    font-family: "Cervo Neue Bold Italic", sans-serif;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.header {
+    text-transform: uppercase;
+    font-size: 5vw;
+    font-family: "Cervo Neue Extra Bold Italic", sans-serif;
+}
+
+.preamble {
+    font-size: 2vw;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.intro-wrapper {
+    display: flex;
+    padding: 0 10vw;
+}
+
+    .intro-wrapper .intro {
+        flex: 0 0 67%;
+    }
 
 .section {
     display: flex;
@@ -137,29 +214,68 @@ header {
     flex-flow: column nowrap;
 }
 
-.image-item-horizontal {
-    max-width: 300px;
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-    padding: 8px;
+p {
+    margin: 0;
+    line-height: 165%;
+    color: #0b132b
 }
 
-    .image-item-horizontal img {
-        width: 100%;
-        z-index: 1;
+.fill {
+    flex: 1 0 100%;
+}
+
+.column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+    .row.wrap {
+        flex-flow: row wrap;
     }
 
-    .image-item-horizontal::before {
+    .row.center {
+        justify-content: center;
+        align-items: center;
+    }
+
+a.button {
+    border-radius: 5vw;
+    font-size: 1.7vw;
+    background: transparent;
+    border: 2px solid #48247d;
+    letter-spacing: 1px;
+    padding: 1.55vw 3.5vw;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    font-family: 'Cervo Neue';
+}
+
+    a.button::before {
         content: "";
-        width: 100%;
-        height: 30%;
-        background: #f0eef6;
+        transition: 200ms ease;
+        background-color: #48247d;
         position: absolute;
         top: 0;
-        left: 0;
-        z-index: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
     }
+
+    a.button:hover {
+        color: white !important
+    }
+
+        a.button:hover::before {
+            left: 0;
+        }
 
 
 .row {
@@ -172,7 +288,6 @@ header {
     }
 
     .row > div {
-        margin: 0 16px;
     }
 
 .block {
@@ -199,8 +314,75 @@ header {
 
 
 h2 {
-    font-size: 40px;
+    font-size: 3.5vw;
 }
+
+
+/** Services */
+.services-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+    .services-wrapper .service-card {
+        flex: 1 1 calc(100% / 3 - 6vw);
+        min-width: 300px;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: center;
+        position: relative;
+        margin: 3vw;
+    }
+
+        .services-wrapper .service-card > a:first-of-type {
+            flex: 1;
+        }
+
+        .services-wrapper .service-card:last-of-type {
+            flex: 0 0 calc(100% / 3 - 16px);
+        }
+
+        .services-wrapper .service-card .service-card-header {
+            color: #48247d;
+            font-size: 2.7vw;
+            flex-basis: calc(100% / 7);
+        }
+
+        .services-wrapper .service-card .description {
+            flex: 1;
+            display: flex;
+            font-size: 1.4vw;
+            padding: 0 1vw;
+        }
+
+
+        .services-wrapper .service-card .img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+
+            .services-wrapper .service-card .img-wrapper img {
+                width: 80%;
+                padding-top: 3.5vw;
+                position: relative;
+                display: inline-block;
+                z-index: 10;
+            }
+
+            .services-wrapper .service-card .img-wrapper::after {
+                content: "";
+                width: 100%;
+                padding-top: 12.6vw;
+                background: #f0eef6;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+
+
 
 /** Image text block*/
 .image-text-block-wrapper {
@@ -209,66 +391,125 @@ h2 {
     flex-flow: row wrap;
 }
 
-.image-text-block {
-    flex: 1 1;
-    position: relative;
+    .image-text-block-wrapper .image-text-block {
+        flex: 1 1 calc(50% - 32px);
+        min-width: 500px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+        transition: 200ms;
+        cursor: pointer;
+        margin: 16px;
+    }
+
+        .image-text-block-wrapper .image-text-block:hover {
+            transform: scale(1.04);
+        }
+
+        .image-text-block-wrapper .image-text-block img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-text-block-wrapper .image-text-block .text-block-text {
+            position: absolute;
+            padding: 30px 50px;
+            flex: 1;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-end;
+            color: white !important;
+        }
+
+        .image-text-block-wrapper .image-text-block h2 {
+            margin: 0;
+        }
+
+        .image-text-block-wrapper .image-text-block p {
+            margin: 0;
+            font-style: italic;
+            color: white !important;
+            font-size: 2vw;
+            opacity: 0;
+            max-height: 0;
+            transition: 200ms;
+            padding-right: 1vw;
+            overflow: hidden;
+        }
+
+        .image-text-block-wrapper .image-text-block::before {
+            opacity: 0.3;
+            transition: 200ms;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .image-text-block-wrapper .image-text-block:hover::before {
+            opacity: 1;
+        }
+
+        .image-text-block-wrapper .image-text-block:hover p {
+            opacity: 1;
+            max-height: unset;
+            overflow: hidden;
+            margin-bottom: 5%;
+        }
+
+
+/** Carousell */
+.carousell-wrapper {
     overflow: hidden;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-end;
-    transition: 200ms;
-    cursor: pointer;
-    margin: 16px;
+    width: 100%;
 }
 
-    .image-text-block:hover {
-        transform: scale(1.04);
-    }
-
-    .image-text-block img {
-        width: 100%;
-        height: 100%;
-    }
-
-    .image-text-block .text-block-text {
-        position: absolute;
-        padding: 30px 50px;
-        flex: 1;
+    .carousell-wrapper .carousell {
         display: flex;
-        flex-flow: column nowrap;
-        color: white;
-        justify-content: flex-end;
+        flex-flow: row nowrap;
+        overflow: auto;
     }
 
-    .image-text-block p {
-        margin: 0;
-        font-style: italic;
-        font-size: 20px;
-        opacity: 0;
-        max-height: 0;
-        transition: 200ms;
+
+/** Contact page*/
+
+.contact-block {
+    flex: 0 0 50%;
+    overflow: hidden;
+}
+
+    .contact-block > div:not(.contact-wrapper) {
+        justify-content: center;
+        flex: 1;
+        overflow: hidden;
+        flex: 0 0 30vw;
+    }
+
+        .contact-block > div:not(.contact-wrapper) img {
+            width: 100%;
+        }
+
+
+
+    .contact-block img {
         overflow: hidden;
     }
-
-    .image-text-block::before {
-        opacity: 0.3;
-        transition: 200ms;
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
+    .contact-block img.icon {
+        max-width: 10vw;
     }
 
-    .image-text-block:hover::before {
-        opacity: 1;
-    }
-
-    .image-text-block:hover p {
-        opacity: 1;
-        max-height: 50px;
+    .contact-block > div {
+        padding: 32px;
         overflow: hidden;
-        margin-bottom: 50px;
+        display: flex;
+    }
+
+    .contact-block .contact-wrapper {
+        align-items: flex-start;
+        justify-content: space-between
     }

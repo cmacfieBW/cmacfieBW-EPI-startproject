@@ -8,7 +8,7 @@ using StartProjectGuide.Business.BaseClasses;
 
 namespace StartProjectGuide.Models.Pages
 {
-    [ContentType(DisplayName = "Standard Page", GUID = "b110e7ba-a846-4215-b0ae-6ecd89f55e13", Description = "")]
+    [ContentType(DisplayName = "Standard Page", GUID = "b110e7ba-a846-4215-b0ae-6ecd89f55e13", Description = "", GroupName ="Default page" )]
     public class StandardPage : BasePageData
     {
 

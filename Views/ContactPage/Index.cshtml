@@ -1,0 +1,19 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.ContactPage>
+<div class="page contact-page">
+    @Html.PropertyFor(m => m.CurrentPage.IntroSection)
+    <div class="contact-block row fill">
+        <div>
+            <div class="column span6">
+                @Html.PropertyFor(m => m.CurrentPage.Telephone)
+                @Html.PropertyFor(m => m.CurrentPage.Email)
+                @Html.PropertyFor(m => m.CurrentPage.Adress)
+                @Html.PropertyFor(m => m.CurrentPage.Icon, new { ChildrenCustomTagName = "span", ChildrenCssClass = "block"})
+            </div>
+        </div>
+        <div class="span6">
+            @Html.PropertyFor(m => m.CurrentPage.Image, new { CssClass = "full-width" })
+        </div>
+    </div>
+</div>

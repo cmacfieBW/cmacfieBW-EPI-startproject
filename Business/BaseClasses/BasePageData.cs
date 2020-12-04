@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using EPiServer;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
+using StartProjectGuide.Models.Blocks;
 
 namespace StartProjectGuide.Business.BaseClasses
 {
@@ -13,11 +15,11 @@ namespace StartProjectGuide.Business.BaseClasses
     public abstract class BasePageData : PageData
     {
 
-        [Display(Name = "Header", GroupName = SystemTabNames.Content, Order = 10)]
-        public virtual string Header { get; set; }
+        [Display(Name = "Intro section", GroupName = SystemTabNames.Content, Order = 10)]
+        public virtual IntroBlock IntroSection { get; set; }
 
-        [Display(Name = "Preamble", GroupName = SystemTabNames.Content, Order = 10)]
-        public virtual XhtmlString Preamble { get; set; }
+        [Display(Name = "ExternalURL", GroupName = SystemTabNames.Settings, Order = 10)]
+        public virtual Url CustomMenuLink { get; set; }
 
         [Display(GroupName = Global.GroupNames.MetaData, Order = 100)]
         [CultureSpecific]
@@ -33,18 +35,6 @@ namespace StartProjectGuide.Business.BaseClasses
 
         [Display(GroupName = Global.GroupNames.MetaData, Order = 300)]
         public virtual string MetaDescription { get; set; }
-
-        [Display(
-            GroupName = SystemTabNames.Settings,
-            Order = 200)]
-        [CultureSpecific]
-        public virtual bool HideSiteHeader { get; set; }
-
-        [Display(
-            GroupName = SystemTabNames.Settings,
-            Order = 210)]
-        [CultureSpecific]
-        public virtual bool HideSiteFooter { get; set; }
 
     }
 }

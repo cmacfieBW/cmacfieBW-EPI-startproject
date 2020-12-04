@@ -23,7 +23,7 @@ namespace StartProjectGuide.Models.Blocks
             get
             {
                 var currentUrl = this.GetPropertyValue(curr => curr.Url);
-                return currentUrl != null && !currentUrl.IsEmpty() ? currentUrl : new Url("~/Static/images/example.jpg");
+                return currentUrl != null && !currentUrl.IsEmpty() ? currentUrl : new Url("/Static/images/no-image.png");
             }
             set
             {
