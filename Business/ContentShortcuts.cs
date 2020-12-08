@@ -4,6 +4,7 @@ using EPiServer;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using StartProjectGuide.Business.Extensions;
 using StartProjectGuide.Models.Pages;
 
 namespace StartProjectGuide.Business
@@ -14,7 +15,7 @@ namespace StartProjectGuide.Business
         public static StartPage GetStartPage()
         {
             if (ContentReference.StartPage != null) return ContentReference.StartPage.Get<StartPage>() as StartPage;
-            return new ContentReference(6).Get<StartPage>() as StartPage;
+            return new ContentReference(27).Get<StartPage>() as StartPage;
         }
 
         public static ContentReference GetServiceStartPage()

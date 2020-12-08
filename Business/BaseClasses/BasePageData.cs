@@ -18,9 +18,6 @@ namespace StartProjectGuide.Business.BaseClasses
         [Display(Name = "Intro section", GroupName = SystemTabNames.Content, Order = 10)]
         public virtual IntroBlock IntroSection { get; set; }
 
-        [Display(Name = "ExternalURL", GroupName = SystemTabNames.Settings, Order = 10)]
-        public virtual Url CustomMenuLink { get; set; }
-
         [Display(GroupName = Global.GroupNames.MetaData, Order = 100)]
         [CultureSpecific]
         public virtual string MetaTitle

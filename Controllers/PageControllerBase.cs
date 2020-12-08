@@ -15,12 +15,5 @@ namespace StartProjectGuide.Controllers
     public abstract class PageControllerBase<T> : PageController<T> where T: BasePageData
     {
 
-        public virtual void ModifyLayout(LayoutModel layoutModel)
-        {
-            var page = PageContext.Page as BasePageData;
-            if (page != null)
-            {
-            }
-        }
     }
 }

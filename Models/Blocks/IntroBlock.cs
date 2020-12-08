@@ -7,7 +7,7 @@ using StartProjectGuide.Business.BaseClasses;
 
 namespace StartProjectGuide.Models.Blocks
 {
-    [ContentType(DisplayName = "Intro block", GUID = "6a922c9f-6f52-44cf-8f4c-b7329dad1530", Description = "")]
+    [ContentType(DisplayName = "Intro block", GUID = "6a922c9f-6f52-44cf-8f4c-b7329dad1530", Description = "", AvailableInEditMode = false)]
     public class IntroBlock : BaseBlockData
     {
 

@@ -11,9 +11,8 @@ namespace StartProjectGuide.Models.Blocks
 {
     [ContentType(
         GUID = "09854019-91A5-4B93-8623-17F038346001",
-        //AvailableInEditMode = false,
+        AvailableInEditMode = false,
         GroupName = Global.GroupNames.SiteSettings)]
-    [SiteImageUrl]
     public class ImageBlock : BlockData
     {
         [DefaultDragAndDropTarget]
@@ -23,7 +22,7 @@ namespace StartProjectGuide.Models.Blocks
             get
             {
                 var currentUrl = this.GetPropertyValue(curr => curr.Url);
-                return currentUrl != null && !currentUrl.IsEmpty() ? currentUrl : new Url("/Static/images/no-image.png");
+                return currentUrl != null && !currentUrl.IsEmpty() ? currentUrl : new Url("~/Static/images/no-image.png");
             }
             set
             {

@@ -9,7 +9,9 @@ using StartProjectGuide.Models.Blocks;
 
 namespace StartProjectGuide.Models.Pages
 {
-    [ContentType(DisplayName = "ContactPage", GUID = "a483b698-26a6-44a6-a002-354f6bc6008e", Description = "")]
+    [ContentType(DisplayName = "ContactPage", GUID = "a483b698-26a6-44a6-a002-354f6bc6008e", Description = "", GroupName = Global.PageTypes.ChildPage)]
+    [SiteImageUrl]
+
     public class ContactPage : BasePageData
     {
         [Display(Name = "Image", GroupName = SystemTabNames.Content, Order = 5)]

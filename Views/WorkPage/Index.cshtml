@@ -5,7 +5,7 @@
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.WorkPage>
 
 <div class="page work-page">
-    @Html.PropertyFor(m => m.CurrentPage.IntroSection)
+    @Html.Partial("~/Views/Shared/PagePartials/IntroBlock.cshtml", Model.CurrentPage.IntroSection)
     <div class="content">
         @Html.PropertyFor(m => m.CurrentPage.MainContentArea)
     </div>

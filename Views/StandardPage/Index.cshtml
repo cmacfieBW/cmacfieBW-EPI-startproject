@@ -4,6 +4,6 @@
 @using StartProjectGuide.Models.Pages;
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.StandardPage>
 <div class="page">
-    @Html.PropertyFor(m => m.CurrentPage.IntroSection)
+    @Html.Partial("~/Views/Shared/PagePartials/IntroBlock.cshtml", Model.CurrentPage.IntroSection)
     @Html.PropertyFor(m => m.CurrentPage.MainContentArea)
 </div>

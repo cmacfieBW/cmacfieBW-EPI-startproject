@@ -3,52 +3,16 @@
 @using StartProjectGuide.Models.ViewModels
 @using StartProjectGuide.Models.Pages
 @using StartProjectGuide.Business
+@using StartProjectGuide.Business.Extensions
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Models.Pages.StartPage>
 @{
     var servicePages = ContentShortcuts.GetServiceStartPage().GetChildren();
-    var workStartPage = ContentShortcuts.GetWorkStartPage().Get<WorkStartPage>() as WorkStartPage;
+    var workStartPage = ContentShortcuts.GetWorkStartPage().Get<WorkLandingPage>() as WorkLandingPage;
     var workPages = ContentShortcuts.GetWorkStartPage().GetChildren();
 }
-@Html.PropertyFor(m => m.CurrentPage.IntroSection)
-<div class="carousell-wrapper">
-    <div class="carousell">
-        @if (servicePages != null)
-        {
-            foreach (var servicePage in servicePages.ToList().Select(p => p as ServicePage).Take(3))
-            {
-                <a href="@servicePage.StaticLinkURL">
-                    <div class="section service-card">
-                        <div class="img-wrapper">
-                            <img src="@Url.ContentUrl(servicePage.Image.Url)" alt="@servicePage.Image.Title" />
-                        </div>
-                        <h2 class="service-card-header">@Html.Raw(servicePage.Name)</h2>
-                        <div class="description">@Html.Raw(servicePage.TeaserDescription)</div>
-                        <a class="link" href="@servicePage.StaticLinkURL">Read more</a>
-                    </div>
-                </a>
-            }
-        }
-    </div>
-</div>
-<div class="image-text-block-wrapper">
+@Html.Partial("~/Views/Shared/PagePartials/IntroBlock.cshtml", Model.CurrentPage.IntroSection)
+@Html.Partial("~/Views/Shared/PagePartials/ServiceCardCarouselle.cshtml")
 
-    @if (workPages != null)
-    {
-        foreach (var workPage in workPages.ToList().Select(x => x as WorkPage).Take(4))
-        {
-            <a class="image-text-block span6" href="@workPage.StaticLinkURL">
-                <div class="text-block-text">
-                    <h2>@Html.Raw(workPage.Name)</h2>
-                    <p>@Html.Raw(workPage.TeaserDescription)</p>
-                </div>
-                <img class="background-image" src="@Url.ContentUrl(workPage.Image.Url)" alt="@workPage.Image.Title" />
-            </a>
-        }
-        <div class="row center fill">
-            <a class=" button link" href="@workStartPage.StaticLinkURL">Our cases</a>
-        </div>
-    }
-</div>
 <div class="content">
     @Html.PropertyFor(m => m.CurrentPage.MainBodyContent)
 </div>

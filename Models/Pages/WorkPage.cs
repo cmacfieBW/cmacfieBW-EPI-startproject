@@ -7,11 +7,11 @@ using EPiServer.DataAnnotations;
 using EPiServer.Shell.ObjectEditing;
 using StartProjectGuide.Business.BaseClasses;
 using StartProjectGuide.Models.Blocks;
-using static StartProjectGuide.Business.Helpers;
 
 namespace StartProjectGuide.Models.Pages
 {
-    [ContentType(DisplayName = "Work Page", GUID = "ab2b6e28-0d00-438e-a7fd-bec8721123c6", Description = "", GroupName = "Sub page")]
+    [ContentType(DisplayName = "Work Page", GUID = "ab2b6e28-0d00-438e-a7fd-bec8721123c6", Description = "", GroupName = Global.PageTypes.ChildPage)]
+    [SiteImageUrl]
     public class WorkPage : BasePageData
     {
 
@@ -27,6 +27,7 @@ namespace StartProjectGuide.Models.Pages
         /** Teaser */
         [Display(Name = "Description", Description = "Descriptive text", GroupName = Global.GroupNames.Teaser, Order = 1)]
         public virtual XhtmlString TeaserDescription { get; set; }
+
 
     }
 }

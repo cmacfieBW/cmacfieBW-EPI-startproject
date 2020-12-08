@@ -14,7 +14,5 @@ namespace StartProjectGuide.Business.Interfaces
     {
         T CurrentPage { get; }
         IContent Section { get; set; }
-
-        //LayoutModel Layout { get; set; }
     }
 }

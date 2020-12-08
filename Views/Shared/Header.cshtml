@@ -5,6 +5,7 @@
 @using StartProjectGuide.Business.BaseClasses;
 @using System.Web.Mvc;
 @using StartProjectGuide.Business;
+@using StartProjectGuide.Business.Extensions
 @using StartProjectGuide.Models.Pages;
 @model  StartProjectGuide.Business.Interfaces.IPageViewModel<StartProjectGuide.Business.BaseClasses.BasePageData>
 @{
@@ -13,21 +14,24 @@
 }
 <header class="container">
     <a href="/" class="logo">
-        <img src="~/Static/images/bw.svg" />
+        <img src="~/Static/images/bw.svg" title="Start" />
     </a>
     <div class="menu-items-row">
         <div class="menu-items">
             @foreach (var page in pages)
             {
-                if (page.CustomMenuLink != null)
-                {
-                    <a class="menu-item" href="@page.CustomMenuLink">@page.Name</a>
-                }
-                else
-                {
-                    @Html.PageLink(page, null, new { @class = "menu-item" })
-                }
+                <a class="menu-item" href="@Url.ContentUrl(page.ContentLink)">@page.Name</a>
             }
         </div>
+    </div>
+    <div class="social-media-links row">
+        @if (startPage.FacebookLink != null)
+        {
+            <a target="_blank" href="@Url.ContentUrl(startPage.FacebookLink)" class="menu-item"><img class="icon small inverted padded-16" src="~/Static/images/facebook-icon.svg" /></a>
+        }
+        @if (startPage.InstagramLink != null)
+        {
+            <a target="_blank" href="@Url.ContentUrl(startPage.InstagramLink)" class="menu-item"><img class="icon small inverted" src="~/Static/images/instagram-icon.svg" /></a>
+        }
     </div>
 </header>

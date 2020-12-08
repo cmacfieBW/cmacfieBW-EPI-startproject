@@ -6,14 +6,12 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.Shell.ObjectEditing;
 using EPiServer.SpecializedProperties;
+using Sgml;
 
 namespace StartProjectGuide
 {
     public class Global : EPiServer.Global
     {
-        public readonly static SelectItem BlockWidthFull = new SelectItem() { Text = "Full", Value = "span12" };
-        public readonly static SelectItem BlockWidthHalf = new SelectItem() { Text = "Half", Value = "span6" };
-        public readonly static SelectItem BlockWidthQuarter = new SelectItem() { Text = "Quater", Value = "span3" };
 
         [GroupDefinitions()]
         public static class GroupNames
@@ -29,19 +27,46 @@ namespace StartProjectGuide
             [Display(Name = "Site Settings", Order = 30)]
             public const string SiteSettings = "Site Settings";
 
+            [Display(Name = "Social media", Order = 40)]
+            public const string SocialMedia = "Social Media";
+
 
         }
 
-        public static IList<SelectItem> BlockWidths
-        {
-            get
-            {
-                SelectItem[] Items = new SelectItem[3];
-                Items[0] = BlockWidthFull;
-                Items[1] = BlockWidthHalf;
-                Items[2] = BlockWidthQuarter;
-                return Items;
 
+        public static class PageTypes
+        {
+            [Display(GroupName = "Landing Page", Description = "Top level page type", Order = 10)]
+            public const string LandingPage = "LandingPage";
+            [Display(GroupName = "Child Page", Description = "Non-top level type of page", Order = 20)]
+            public const string ChildPage = "ChildPage";
+            [Display(GroupName = "Start Page", Description = "Special type of page", Order = 100)]
+            public const string SpecialPage = "SpecialPage";
+            [Display(GroupName = "Other Page", Description = "Other type of page", Order = 30)]
+            public const string OtherPage = "OtherPage";
+        }
+
+        public class ContentAreaTags
+        {
+            public readonly static string BlockWidthFull = "span12";
+            public readonly static string BlockWidthTwoThirds = "span8";
+            public readonly static string BlockWidthHalf = "span6";
+            public readonly static string BlockWidthOneThird = "span4";
+            public readonly static string BlockWidthQuarter = "span3";
+
+            public static List<ISelectItem> GetListOfWidths
+            {
+                get
+                {
+                    List<ISelectItem> Items = new List<ISelectItem>();
+                    Items.Add((new SelectItem() { Text = "Full width", Value = BlockWidthFull }));
+                    Items.Add(new SelectItem() { Text = "2/3 width", Value = BlockWidthTwoThirds });
+                    Items.Add(new SelectItem() { Text = "Half width", Value = BlockWidthHalf });
+                    Items.Add(new SelectItem() { Text = "1/3 width", Value = BlockWidthOneThird });
+                    Items.Add(new SelectItem() { Text = "Quarter width", Value = BlockWidthQuarter });
+                    return Items;
+
+                }
             }
         }
     }

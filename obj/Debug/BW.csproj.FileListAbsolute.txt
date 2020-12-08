@@ -1,2 +1,0 @@
-C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\obj\Debug\BW.csprojAssemblyReference.cache
-C:\Users\bombayworks\source\repos\EpiServerStartProject\StartProjectGuide\obj\Debug\BW.csproj.CoreCompileInputs.cache

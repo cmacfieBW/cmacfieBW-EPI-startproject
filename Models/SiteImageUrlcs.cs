@@ -8,12 +8,7 @@ namespace StartProjectGuide.Models
 {
     public class SiteImageUrl : ImageUrlAttribute
     {
-        public SiteImageUrl() : base("~/Static/images/example.jpg")
-        {
-
-        }
-
-        public SiteImageUrl(string path) : base(path)
+        public SiteImageUrl() : base("~/Static/images/no-image.png")
         {
 
         }

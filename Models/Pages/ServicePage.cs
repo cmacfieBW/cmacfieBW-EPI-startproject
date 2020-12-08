@@ -11,7 +11,7 @@ using StartProjectGuide.Models.Blocks;
 
 namespace StartProjectGuide.Models.Pages
 {
-    [ContentType(DisplayName = "Service page", GUID = "37115e77-d490-4e71-b908-9d57b62d23c2", Description = "", GroupName = "Sub page")]
+    [ContentType(DisplayName = "Service page", GUID = "37115e77-d490-4e71-b908-9d57b62d23c2", Description = "", GroupName = Global.PageTypes.ChildPage)]
     public class ServicePage : BasePageData
     {
         [Display(

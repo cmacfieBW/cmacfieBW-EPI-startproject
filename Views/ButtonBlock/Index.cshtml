@@ -3,9 +3,7 @@
 @model StartProjectGuide.Models.Blocks.ButtonBlock
 @if (Model.Text != null)
 {
-    <div class="row fill">
-        <a class="link button" href="@Model.Url">
-            @Html.PropertyFor(m => m.Text)
-        </a>
-    </div>
+    <a class="{@Model.Style}" href="@Model.Url">
+        @Html.PropertyFor(m => m.Text)
+    </a>
 }
